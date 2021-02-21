@@ -1,1 +1,12 @@
 <h1><%= @machine.location %> Vending Machine</h1>
+<section id='stocked'>
+  <% if @machine.snack_count > 0 %>
+    <h2>Stocked Snacks:</h2>
+    <ul>
+      <% @machine.snacks.each do |snack| %>
+        <li><%= snack.name %>: $<%= snack.price %></li>
+      <% end %>
+    </ul>
+    <p>Average Price: $<%= @machine.price_avg %></p>
+  <% end %>
+</section>
